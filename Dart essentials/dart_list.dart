@@ -22,15 +22,28 @@ void main() {
   fruits.remove("Banana"); // remove by value
   fruits.removeAt(1); // remove by index
   fruits.removeLast(); // removes the last element and returns the list
-  fruits.removeWhere((items) => items.length == 5); // remove all items that satisfy the condition
+  fruits.removeWhere(
+    (items) => items.length == 5,
+  ); // remove all items that satisfy the condition
   print(fruits);
 
   var names = <String>["Nafis", "Nafee", "Keka"];
   print(names);
 
   // loop through list
-  for (var i = 0; i < names.length; i++)
-  {
+  for (var i = 0; i < names.length; i++) {
     print(names[i]);
   }
+
+  // for in loop
+  for (var name in names) {
+    print(name);
+  }
+
+  // for each loop
+  names.forEach((name) => print(name));
+
+  // spread operator ...
+  var merge = [...fruits, ...names];
+  print('Merged: $merge');
 }
