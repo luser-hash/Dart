@@ -1,0 +1,25 @@
+/// In dart Higher order functions are the functions that either take one or more functions
+/// as argument or return a function as it's result or both. Because in dart fuctions are
+/// first class citizen meaning they can be treated like any other value. 
+
+// functions as argument
+
+void calculator(int a, int b, int Function (int, int ) operation)
+// takes another function operation as argument
+// int Function(int, int) means operation must be a function that takes two int args and returns 
+// an int, this is Function signature.
+{
+  int result = operation(a,b);
+  print("result: $result");
+}
+
+int add(int x, int y) => x+y;
+int mul(int x, int y) => x*y;
+
+void main()
+{
+  // we pass add, mul; both functions matching required signature. 
+  calculator(5, 3, add);
+  calculator(5, 2, mul);
+}
+
