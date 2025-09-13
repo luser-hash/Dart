@@ -16,10 +16,28 @@ void calculator(int a, int b, int Function (int, int ) operation)
 int add(int x, int y) => x+y;
 int mul(int x, int y) => x*y;
 
+Function getCalculator(String operator)
+{
+  // This function returns a function based on operator String. 
+  switch (operator)
+  {
+    
+    case '+':
+      return (int a, int b) => a + b;
+    case '-': 
+      return (int a, int b) => a - b;
+    default:
+      return (int a, int b) => 0;
+  }
+}
+
 void main()
 {
   // we pass add, mul; both functions matching required signature. 
   calculator(5, 3, add);
   calculator(5, 2, mul);
+
+  var adder = getCalculator("+"); // getCalculator('+') returns the addition function assigned to adder.
+  print(adder(10,5)); // adder() calls the returned function, printing 15
 }
 
